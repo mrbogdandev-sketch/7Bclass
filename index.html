@@ -4,24 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>7Б класс — официальный сайт</title>
-  <meta name="description" content="Cайт 7Б класса: новости, жизнь класса и поддержка."/>
+  <meta name="description" content="Современный адаптивный сайт 7Б класса: домашние задания, новости, жизнь класса и поддержка."/>
   <style>
-    /* ====== Шрифты ====== */
-    @font-face {
-      font-family: "MainDisplay";
-      src: url("main.otf") format("opentype");
-      font-weight: 700;
-      font-style: normal;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: "TextBody";
-      src: url("text.otf") format("opentype");
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    }
-
     /* ====== Базовые стили ====== */
     :root{
       --bg: #000000;
@@ -37,10 +21,10 @@
       --radius-lg: 18px;
       --radius-md: 12px;
       --radius-sm: 10px;
-      --gap-xl: 48px;
-      --gap-lg: 24px;
-      --gap-md: 16px;
-      --gap-sm: 12px;
+      --gap-xl: 100px;
+      --gap-lg: 60px;
+      --gap-md: 30px;
+      --gap-sm: 16px;
       --transition-fast: 220ms cubic-bezier(.2,.7,.2,1);
       --transition-med: 420ms cubic-bezier(.2,.7,.2,1);
     }
@@ -56,479 +40,501 @@
         radial-gradient(1200px 600px at 50% 35%, rgba(255,255,255,0.12), transparent 60%),
         radial-gradient(500px 300px at 50% 50%, rgba(255,255,255,0.08), transparent 70%),
         var(--bg);
-      font-family: "TextBody", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     /* ====== Контейнер ====== */
     .container {
-      width: min(1100px, 94vw);
+      width: min(1200px, 94vw);
       margin: 0 auto;
       padding: 0;
+    }
+
+    /* ====== Логотип ====== */
+    .logo-container {
+      display: flex;
+      justify-content: center;
+      padding: 40px 0;
+      margin-top: 40px;
+    }
+    
+    .logo {
+      height: 120px;
+      width: auto;
+    }
+
+    /* ====== Главная секция ====== */
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 0 80px;
+    }
+
+    .hero-title {
+      font-weight: 700;
+      font-size: clamp(36px, 7vw, 80px);
+      line-height: 1.1;
+      margin: 0 0 24px;
+      letter-spacing: -0.5px;
+      max-width: 900px;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(18px, 2.5vw, 22px);
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ====== Секции ====== */
+    section {
+      padding: var(--gap-xl) 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: var(--gap-lg);
+    }
+
+    .section-title {
+      font-weight: 700;
+      font-size: clamp(28px, 4vw, 42px);
+      margin: 0 0 16px;
+      letter-spacing: -0.3px;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ====== Сетка домашних заданий ====== */
+    .homework-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .homework-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .homework-subject {
+      font-weight: 700;
+      font-size: 20px;
+      margin: 0 0 8px;
+    }
+
+    .homework-task {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* ====== Сетка новостей ====== */
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .news-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .news-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .news-content {
+      padding: 24px;
+    }
+
+    .news-title {
+      font-weight: 700;
+      font-size: 20px;
+      margin: 0 0 12px;
+    }
+
+    .news-text {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* ====== Секция поддержки ====== */
+    .support-section {
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 80px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .support-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    }
+
+    .support-avatar {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 30px;
+      border: 3px solid rgba(255,255,255,0.1);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .support-name {
+      font-weight: 700;
+      font-size: 28px;
+      margin: 0 0 8px;
+    }
+
+    .support-role {
+      color: var(--muted);
+      margin: 0 0 40px;
+      font-size: 18px;
+    }
+
+    /* ====== Счетчик ====== */
+    .countdown {
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 80px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .countdown::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    }
+
+    .countdown-title {
+      font-weight: 700;
+      font-size: clamp(24px, 3vw, 36px);
+      margin-bottom: 50px;
+      letter-spacing: 0.5px;
+    }
+
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .countdown-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    .countdown-number {
+      font-weight: 700;
+      font-size: clamp(40px, 6vw, 64px);
+      line-height: 1;
+      background: linear-gradient(135deg, #fff, #aaa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 5px 15px rgba(255,255,255,0.1);
+      margin-bottom: 10px;
+    }
+
+    .countdown-label {
+      font-size: 16px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .countdown-item::after {
+      content: "";
+      position: absolute;
+      bottom: -15px;
+      width: 30px;
+      height: 2px;
+      background: rgba(255,255,255,0.3);
+    }
+
+    /* ====== Адаптивность ====== */
+    @media (max-width: 768px) {
+      .countdown-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+      
+      .section-header {
+        margin-bottom: 60px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .homework-grid,
+      .news-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .countdown-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .support-section {
+        padding: 60px 20px;
+      }
+      
+      .logo {
+        height: 100px;
+      }
+      
+      .support-avatar {
+        width: 200px;
+        height: 200px;
+      }
     }
 
     /* ====== Анимации появления ====== */
     .reveal {
       opacity: 0;
-      transform: translateY(18px) scale(0.98);
-      filter: blur(3px);
-      transition:
-        opacity var(--transition-med),
-        transform var(--transition-med),
-        filter var(--transition-med);
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
     }
-    .reveal.in {
+
+    .reveal.active {
       opacity: 1;
-      transform: translateY(0) scale(1);
-      filter: blur(0);
+      transform: translateY(0);
     }
-
-    /* ====== Главная секция ====== */
-    .hero {
-      min-height: 88vh;
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      align-items: center;
-      gap: var(--gap-xl);
-      padding: 12vh 0 8vh;
-      position: relative;
-    }
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background: radial-gradient(600px 300px at 60% 50%, rgba(255,255,255,0.10), transparent 70%);
-      mask-image: linear-gradient(#000, transparent 70%);
-    }
-    .hero-text h1 {
-      font-family: "MainDisplay", serif;
-      font-weight: 700;
-      letter-spacing: 0.4px;
-      font-size: clamp(28px, 5vw, 60px);
-      line-height: 1.1;
-      margin: 0 0 var(--gap-md);
-      text-shadow: 0 1px 0 rgba(255,255,255,0.06);
-    }
-    .hero-text p {
-      color: var(--muted);
-      font-size: clamp(16px, 2.4vw, 20px);
-      margin: 0;
-    }
-    .logo-wrap {
-      display: grid;
-      place-items: center;
-    }
-    .logo {
-      width: min(380px, 70%);
-      aspect-ratio: 1 / 1;
-      object-fit: contain;
-      filter: drop-shadow(0 20px 30px rgba(255,255,255,0.08));
-      transition: transform var(--transition-med), filter var(--transition-med);
-      will-change: transform;
-    }
-    .logo:hover {
-      transform: scale(1.04) translateY(-2px);
-      filter: drop-shadow(0 30px 50px rgba(255,255,255,0.12));
-    }
-
-    /* ====== Разделитель ====== */
-    .divider {
+    
+    /* ====== Разделители ====== */
+    .section-divider {
       width: 100%;
       height: 1px;
-      background: linear-gradient(to right, transparent, rgba(255,255,255,0.14), transparent);
-      margin: 0 0 var(--gap-xl);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+      margin: 0;
     }
-
-    /* ====== Секция "Жизнь класса" ====== */
-    .section-title {
-      font-family: "MainDisplay", serif;
-      font-weight: 700;
-      font-size: clamp(22px, 3.6vw, 36px);
-      margin: 0 0 var(--gap-lg);
-      letter-spacing: 0.3px;
-    }
-    .news-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: var(--gap-lg);
-    }
-    @media (max-width: 1100px) {
-      .news-grid { grid-template-columns: repeat(3, 1fr); }
-    }
-    @media (max-width: 780px) {
-      .news-grid { grid-template-columns: repeat(2, 1fr); }
-      .hero { grid-template-columns: 1fr; text-align: center; }
-      .logo { width: min(320px, 62%); }
-    }
-    @media (max-width: 520px) {
-      .news-grid { grid-template-columns: 1fr; }
-      .hero { padding: 10vh 0 6vh; }
-    }
-
-    .card {
-      display: flex;
-      flex-direction: column;
-      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)) border-box;
-      border: 1px solid var(--card-border);
-      border-radius: var(--radius-lg);
-      overflow: clip;
-      box-shadow: var(--shadow-soft);
-      transition:
-        transform var(--transition-fast),
-        box-shadow var(--transition-fast),
-        border-color var(--transition-fast);
-      position: relative;
-      isolation: isolate;
-      min-height: 240px; /* Адаптивная высота: растет с контентом, минимум задан */
-    }
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-strong);
-      border-color: rgba(255,255,255,0.18);
-    }
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: -1px;
-      border-radius: inherit;
-      background: radial-gradient(300px 120px at 30% 0%, rgba(255,255,255,0.16), transparent 70%);
-      opacity: 0;
-      transition: opacity var(--transition-fast);
-      pointer-events: none;
-      z-index: 0;
-    }
-    .card:hover::before { opacity: 1; }
-
-    .card-media {
-      position: relative;
-      aspect-ratio: 16 / 10;
-      background: #111;
-      overflow: hidden;
-    }
-    .card-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transform: scale(1.02);
-      transition: transform var(--transition-med), filter var(--transition-med);
-    }
-    .card:hover .card-media img {
-      transform: scale(1.06);
-      filter: brightness(1.06) contrast(1.06);
-    }
-
-    .card-body {
-      padding: 16px 16px 18px;
-      display: grid;
-      gap: 8px;
-    }
-    .card-title {
-      font-family: "MainDisplay", serif;
-      font-size: clamp(18px, 2.4vw, 22px);
-      line-height: 1.25;
-      letter-spacing: 0.25px;
-    }
-    .card-text {
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    /* ====== Секция поддержки ====== */
-    .support {
-      margin: 10vh 0 12vh;
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: var(--gap-xl);
-      align-items: center;
-    }
-    @media (max-width: 860px) {
-      .support { grid-template-columns: 1fr; }
-    }
-
-    .support-photo-wrap {
-      position: relative;
-      border-radius: var(--radius-xl);
-      overflow: hidden;
-      box-shadow: var(--shadow-strong);
-      border: 1px solid var(--card-border);
-      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-    }
-    .support-photo {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: cover;
-      aspect-ratio: 4 / 5;
-      filter: saturate(1.02) contrast(1.04);
-      transition: transform var(--transition-med), filter var(--transition-med);
-    }
-    .support-photo-wrap:hover .support-photo {
-      transform: scale(1.02);
-      filter: brightness(1.04) contrast(1.06);
-    }
-    .support-caption {
-      position: absolute;
-      left: 16px;
-      bottom: 12px;
-      background: rgba(0,0,0,0.5);
-      padding: 8px 12px;
-      border-radius: var(--radius-sm);
-      border: 1px solid rgba(255,255,255,0.18);
-      backdrop-filter: blur(4px);
-      font-size: 14px;
-    }
-
-    .support-text h2 {
-      font-family: "MainDisplay", serif;
-      font-weight: 700;
-      font-size: clamp(22px, 4vw, 40px);
-      margin: 0 0 var(--gap-md);
-    }
-    .support-text .lead {
-      font-size: clamp(18px, 2.6vw, 22px);
-      margin: 0 0 6px;
-    }
-    .support-text .small {
-      color: var(--muted);
-      font-size: 14px;
-      margin: 0 0 var(--gap-lg);
-    }
-
-    /* ====== Кнопка связи (акцент) ====== */
-    .cta-row {
-      display: flex;
-      gap: var(--gap-md);
-      flex-wrap: wrap;
-    }
-    .btn {
-      appearance: none;
-      border: 1px solid rgba(255,255,255,0.26);
-      color: var(--accent);
-      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.02));
-      padding: 12px 18px;
-      border-radius: var(--radius-md);
-      font-weight: 600;
-      font-size: 15px;
-      letter-spacing: 0.2px;
-      transition:
-        transform var(--transition-fast),
-        box-shadow var(--transition-fast),
-        border-color var(--transition-fast),
-        background var(--transition-fast);
-      cursor: pointer;
-      will-change: transform;
-    }
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 24px rgba(255,255,255,0.12);
-      border-color: rgba(255,255,255,0.42);
-      background: linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.06));
-    }
-    .btn:active {
-      transform: translateY(0);
-      box-shadow: none;
-    }
-
-    /* ====== Плавные переходы ====== */
-    * {
-      transition: color var(--transition-fast), background var(--transition-fast);
-    }
-
-    /* ====== Декоративные элементы прокрутки ====== */
-    .scroll-indicator {
-      position: absolute;
-      left: 50%;
-      bottom: 24px;
-      transform: translateX(-50%);
-      display: grid;
-      place-items: center;
-      opacity: 0.7;
-    }
-    .scroll-indicator .wheel {
-      width: 22px;
-      height: 36px;
-      border: 1px solid rgba(255,255,255,0.4);
-      border-radius: 12px;
-      position: relative;
-    }
-    .scroll-indicator .dot {
-      position: absolute;
-      left: 50%;
-      top: 6px;
-      width: 3px;
-      height: 8px;
-      border-radius: 3px;
-      background: rgba(255,255,255,0.7);
-      transform: translateX(-50%);
-      animation: dotMove 1.8s ease-in-out infinite;
-    }
-    @keyframes dotMove {
-      0%   { transform: translate(-50%, 0); opacity: 0.8; }
-      60%  { transform: translate(-50%, 12px); opacity: 0.2; }
-      100% { transform: translate(-50%, 0); opacity: 0.8; }
-    }
-
-    /* ====== Утилиты отступов ====== */
-    section { margin: 6vh 0; }
   </style>
 </head>
 <body>
-  <!-- ====== Главная секция ====== -->
-  <section class="hero container">
-    <div class="hero-text reveal">
-      <h1>Привет! Ты на сайте 7Б класса! Листай вниз</h1>
-      <p>Черный фон, белые акценты и немного магии анимаций. Устраивайся удобно, дальше интереснее.</p>
+  <!-- Главная секция -->
+  <section class="hero">
+    <div class="container">
+      <!-- Логотип -->
+      <div class="logo-container">
+        <img src="logo.png" alt="Логотип 7Б класса" class="logo">
+      </div>
+      
+      <h1 class="hero-title reveal">7Б КЛАСС</h1>
+      <p class="hero-subtitle reveal">Современный подход к школьной жизни</p>
     </div>
-    <div class="logo-wrap reveal">
-      <img class="logo" src="logo.png" alt="Логотип 7Б класса" />
-    </div>
+  </section>
 
-    <div class="scroll-indicator" aria-hidden="true">
-      <div class="wheel">
-        <div class="dot"></div>
+  <div class="section-divider"></div>
+
+  <!-- Секция домашних заданий -->
+  <section id="homework">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title reveal">Домашка на завтра</h2>
+        <p class="section-subtitle reveal">Все задания на следующий учебный день</p>
+      </div>
+      
+      <div class="homework-grid">
+        <div class="homework-card reveal">
+          <h3 class="homework-subject">Математика</h3>
+          <p class="homework-task">Упражнение 5, страница 42</p>
+        </div>
+        <div class="homework-card reveal">
+          <h3 class="homework-subject">Русский язык</h3>
+          <p class="homework-task">Читать "Капитанская дочка", подготовить пересказ</p>
+        </div>
+        <div class="homework-card reveal">
+          <h3 class="homework-subject">Английский язык</h3>
+          <p class="homework-task">Ничего</p>
+        </div>
+        <div class="homework-card reveal">
+          <h3 class="homework-subject">Биология</h3>
+          <p class="homework-task">§ 6 читать, ответить на вопросы</p>
+        </div>
+        <div class="homework-card reveal">
+          <h3 class="homework-subject">География</h3>
+          <p class="homework-task">Контурные карты стр. 12-13</p>
+        </div>
+        <div class="homework-card reveal">
+          <h3 class="homework-subject">История</h3>
+          <p class="homework-task">Подготовить доклад о Петре I</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <div class="divider"></div>
+  <div class="section-divider"></div>
 
-  <!-- ====== Секция: Жизнь класса ====== -->
-  <section id="life" class="container">
-    <h2 class="section-title reveal">Жизнь класса</h2>
+  <!-- Секция новостей -->
+  <section id="news">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title reveal">Жизнь класса</h2>
+        <p class="section-subtitle reveal">Самые интересные события и мероприятия</p>
+      </div>
 
-    <div class="news-grid">
-      <!-- Карточка 1 -->
-      <article class="card reveal">
-        <div class="card-media">
-          <img src="live1.png" alt="Событие класса 1"/>
+      <div class="news-grid">
+        <div class="news-card reveal">
+          <img src="live1.png" alt="Осенний проектный день" class="news-image">
+          <div class="news-content">
+            <h3 class="news-title">Осенний проектный день</h3>
+            <p class="news-text">Мы сделали мини-выставку работ: от макетов мостов до маленьких роботов. Получилось тепло и по‑домашнему — даже чай с имбирем был!</p>
+          </div>
         </div>
-        <div class="card-body">
-          <h3 class="card-title">Пока ничего нет</h3>
-          <p class="card-text">
-           Пока ничего нет
-        </div>
-      </article>
 
-      <!-- Карточка 2 -->
-      <article class="card reveal">
-        <div class="card-media">
-          <img src="live2.png" alt="Событие класса 2"/>
+        <div class="news-card reveal">
+          <img src="live2.png" alt="Спортивная пятница" class="news-image">
+          <div class="news-content">
+            <h3 class="news-title">Спортивная пятница</h3>
+            <p class="news-text">Легкая атлетика и командные эстафеты. Важнее всего — поддержка друг друга. Пара забавных моментов осталась на видео.</p>
+          </div>
         </div>
-        <div class="card-body">
-          <h3 class="card-title">Пока ничего нет</h3>
-          <p class="card-text">
-            Пока ничего нет
-          </p>
-        </div>
-      </article>
 
-      <!-- Карточка 3 -->
-      <article class="card reveal">
-        <div class="card-media">
-          <img src="live3.png" alt="Событие класса 3"/>
+        <div class="news-card reveal">
+          <img src="live3.png" alt="Литературный вечер" class="news-image">
+          <div class="news-content">
+            <h3 class="news-title">Литературный вечер</h3>
+            <p class="news-text">Вспоминали любимые книги и читали вслух. Даже те, кто обычно молчит, нашли пару строк, которые действительно задели.</p>
+          </div>
         </div>
-        <div class="card-body">
-          <h3 class="card-title">Пока ничего нет</h3>
-          <p class="card-text">
-            Пока ничего нет
-          </p>
-        </div>
-      </article>
 
-      <!-- Карточка 4 -->
-      <article class="card reveal">
-        <div class="card-media">
-          <img src="live4.png" alt="Событие класса 4"/>
+        <div class="news-card reveal">
+          <img src="live4.png" alt="Эко‑субботник" class="news-image">
+          <div class="news-content">
+            <h3 class="news-title">Эко‑субботник</h3>
+            <p class="news-text">Собрали мусор у школы и разобрали, куда что сдавать. Небольшой шаг, который все равно имеет значение.</p>
+          </div>
         </div>
-        <div class="card-body">
-          <h3 class="card-title">Пока ничего нет</h3>
-          <p class="card-text">
-           Пока ничего нет
-          </p>
-        </div>
-      </article>
+      </div>
     </div>
   </section>
 
-  <div class="divider"></div>
+  <div class="section-divider"></div>
 
-  <!-- ====== Секция поддержки ====== -->
-  <section id="support" class="support container">
-    <div class="support-photo-wrap reveal">
-      <img class="support-photo" src="supportphoto.png" alt="Сотрудник поддержки"/>
-      <div class="support-caption">Богдан Подвохов. Поддержка</div>
+  <!-- Секция поддержки -->
+  <section id="support">
+    <div class="container">
+      <div class="support-section reveal">
+        <img src="supportphoto.png" alt="Богдан Подвохов" class="support-avatar">
+        <h3 class="support-name">Богдан Подвохов</h3>
+        <p class="support-role">Сотрудник поддержки</p>
+        <p class="section-subtitle">Напишите нам и мы все уладим... как нибудь</p>
+      </div>
     </div>
+  </section>
 
-    <div class="support-text reveal">
-      <h2>Поддержка 7Б</h2>
-      <p class="lead">Напишите нам и мы все уладим...</p>
-      <p class="small">как нибудь</p>
-      <div class="cta-row">
-        <button class="btn" onclick="scrollToSection('#life')">Посмотреть новости</button>
-        <button class="btn" onclick="openContact()">Связаться</button>
+  <div class="section-divider"></div>
+
+  <!-- Счетчик -->
+  <section>
+    <div class="container">
+      <div class="countdown reveal">
+        <h3 class="countdown-title">До окончания учебного года осталось:</h3>
+        <div class="countdown-grid">
+          <div class="countdown-item">
+            <span class="countdown-number" id="days">0</span>
+            <span class="countdown-label">дней</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="hours">0</span>
+            <span class="countdown-label">часов</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="minutes">0</span>
+            <span class="countdown-label">минут</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="seconds">0</span>
+            <span class="countdown-label">секунд</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <script>
-    // ====== Плавная прокрутка к секции ======
-    function scrollToSection(selector) {
-      const el = document.querySelector(selector);
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    // ====== Заглушка контакта ======
-    function openContact() {
-      alert('Обед.');
-    }
-
     // ====== Анимация появления при скролле ======
     const observer = new IntersectionObserver((entries) => {
       for (const entry of entries) {
         if (entry.isIntersecting) {
-          entry.target.classList.add('in');
-          observer.unobserve(entry.target);
+          entry.target.classList.add('active');
         }
       }
-    }, { threshold: 0.14 });
+    }, { threshold: 0.1 });
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // ====== Небольшой параллакс для логотипа (современная анимация) ======
-    const logo = document.querySelector('.logo');
-    let rafId = null;
-    let targetX = 0, targetY = 0, x = 0, y = 0;
+    // ====== Счетчик до 31 мая 2026 ======
+    function updateCountdown() {
+      const targetDate = new Date('May 31, 2026 00:00:00').getTime();
+      const now = new Date().getTime();
+      const timeLeft = targetDate - now;
 
-    function onMouseMove(e) {
-      const rect = logo.getBoundingClientRect();
-      const cx = rect.left + rect.width / 2;
-      const cy = rect.top + rect.height / 2;
-      targetX = (e.clientX - cx) / rect.width;
-      targetY = (e.clientY - cy) / rect.height;
-      if (!rafId) rafId = requestAnimationFrame(updateLogo);
-    }
-
-    function updateLogo() {
-      // Легкое сглаживание
-      x += (targetX - x) * 0.12;
-      y += (targetY - y) * 0.12;
-      logo.style.transform = `translate3d(${x * 8}px, ${y * 8}px, 0) scale(1.03)`;
-      logo.style.filter = `drop-shadow(${x * 20}px ${y * 20}px 40px rgba(255,255,255,0.10))`;
-      if (Math.abs(targetX - x) > 0.001 || Math.abs(targetY - y) > 0.001) {
-        rafId = requestAnimationFrame(updateLogo);
-      } else {
-        rafId = null;
+      if (timeLeft < 0) {
+        document.getElementById('days').textContent = '0';
+        document.getElementById('hours').textContent = '0';
+        document.getElementById('minutes').textContent = '0';
+        document.getElementById('seconds').textContent = '0';
+        return;
       }
+
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+      document.getElementById('days').textContent = days;
+      document.getElementById('hours').textContent = hours;
+      document.getElementById('minutes').textContent = minutes;
+      document.getElementById('seconds').textContent = seconds;
     }
 
-    if (logo) {
-      window.addEventListener('mousemove', onMouseMove, { passive: true });
-      window.addEventListener('mouseleave', () => {
-        targetX = 0; targetY = 0;
-        if (!rafId) rafId = requestAnimationFrame(updateLogo);
-      });
-    }
+    // Обновляем счетчик каждую секунду
+    setInterval(updateCountdown, 1000);
+    updateCountdown(); // Инициализация при загрузке
   </script>
 </body>
 </html>
