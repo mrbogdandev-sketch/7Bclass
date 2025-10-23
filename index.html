@@ -6,14 +6,32 @@
   <title>7Б класс — официальный сайт</title>
   <meta name="description" content="Сайт 7Б класса: домашние задания, новости, жизнь класса и поддержка."/>
   <style>
+    /* ====== Подключение шрифтов ====== */
+    @font-face {
+      font-family: 'Main';
+      src: url('main.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+    
+    @font-face {
+      font-family: 'Text';
+      src: url('text.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
     /* ====== Базовые стили ====== */
     :root{
       --bg: #000000;
       --fg: #ffffff;
       --muted: #cfcfcf;
       --accent: #ffffff;
-      --card-bg: #0d0d0d;
-      --card-border: rgba(255,255,255,0.12);
+      --accent-glow: rgba(255,255,255,0.3);
+      --card-bg: rgba(13, 13, 13, 0.7);
+      --card-border: rgba(255,255,255,0.15);
       --glow: rgba(255,255,255,0.12);
       --shadow-strong: 0 20px 40px rgba(0,0,0,0.6);
       --shadow-soft: 0 8px 24px rgba(0,0,0,0.45);
@@ -40,7 +58,7 @@
         radial-gradient(1200px 600px at 50% 35%, rgba(255,255,255,0.12), transparent 60%),
         radial-gradient(500px 300px at 50% 50%, rgba(255,255,255,0.08), transparent 70%),
         var(--bg);
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-family: 'Text', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
       line-height: 1.6;
       overflow-x: hidden;
     }
@@ -61,52 +79,100 @@
     }
     
     .logo {
-      height: 120px;
+      height: 140px;
       width: auto;
+      filter: drop-shadow(0 0 20px rgba(255,255,255,0.2));
     }
 
     /* ====== Главная секция ====== */
     .hero {
-      min-height: 80vh;
+      min-height: 90vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
       padding: 0 0 80px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(ellipse at center, rgba(255,255,255,0.03) 0%, transparent 70%);
+      pointer-events: none;
     }
 
     .hero-title {
-      font-weight: 700;
-      font-size: clamp(36px, 7vw, 80px);
-      line-height: 1.1;
-      margin: 0 0 24px;
-      letter-spacing: -0.5px;
+      font-family: 'Main', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-weight: 800;
+      font-size: clamp(42px, 8vw, 90px);
+      line-height: 1.05;
+      margin: 0 0 28px;
+      letter-spacing: -1px;
       max-width: 900px;
+      background: linear-gradient(135deg, #fff 0%, #aaa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 5px 15px rgba(255,255,255,0.1);
+      position: relative;
+    }
+
+    .hero-title::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
     }
 
     .hero-subtitle {
-      font-size: clamp(18px, 2.5vw, 22px);
+      font-size: clamp(18px, 2.5vw, 24px);
       color: var(--muted);
       max-width: 600px;
       margin: 0 auto;
+      font-weight: 300;
+      letter-spacing: 0.5px;
     }
 
     /* ====== Секции ====== */
     section {
       padding: var(--gap-xl) 0;
+      position: relative;
     }
 
     .section-header {
       text-align: center;
       margin-bottom: var(--gap-lg);
+      position: relative;
     }
 
     .section-title {
+      font-family: 'Main', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
       font-weight: 700;
-      font-size: clamp(28px, 4vw, 42px);
-      margin: 0 0 16px;
+      font-size: clamp(32px, 4.5vw, 48px);
+      margin: 0 0 20px;
       letter-spacing: -0.3px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 2px;
+      background: var(--accent);
     }
 
     .section-subtitle {
@@ -114,86 +180,140 @@
       font-size: 18px;
       max-width: 600px;
       margin: 0 auto;
+      font-weight: 300;
     }
 
     /* ====== Сетка домашних заданий ====== */
     .homework-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
     }
 
     .homework-card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
       border: 1px solid var(--card-border);
       border-radius: var(--radius-lg);
-      padding: 24px;
+      padding: 28px;
       position: relative;
       overflow: hidden;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .homework-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
     }
 
     .homework-subject {
+      font-family: 'Main', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
       font-weight: 700;
-      font-size: 20px;
-      margin: 0 0 8px;
+      font-size: 22px;
+      margin: 0 0 12px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .homework-subject::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 30px;
+      height: 2px;
+      background: var(--accent);
     }
 
     .homework-task {
       color: var(--muted);
       margin: 0;
+      font-size: 17px;
     }
 
     /* ====== Сетка новостей ====== */
     .news-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 32px;
     }
 
     .news-card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
       border: 1px solid var(--card-border);
       border-radius: var(--radius-lg);
       overflow: hidden;
       position: relative;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     }
 
     .news-image {
       width: 100%;
-      height: 200px;
+      height: 220px;
       object-fit: cover;
     }
 
     .news-content {
-      padding: 24px;
+      padding: 28px;
+      position: relative;
+    }
+
+    .news-content::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
     }
 
     .news-title {
+      font-family: 'Main', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
       font-weight: 700;
-      font-size: 20px;
-      margin: 0 0 12px;
+      font-size: 22px;
+      margin: 0 0 16px;
     }
 
     .news-text {
       color: var(--muted);
       margin: 0;
+      line-height: 1.6;
     }
 
     /* ====== Секция поддержки ====== */
     .support-section {
-      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
       border: 1px solid var(--card-border);
       border-radius: var(--radius-lg);
       padding: 80px 40px;
       text-align: center;
       position: relative;
       overflow: hidden;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     }
 
     .support-section::before {
       content: "";
       position: absolute;
       top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    }
+
+    .support-section::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
       left: 0;
       right: 0;
       height: 1px;
@@ -208,29 +328,68 @@
       margin: 0 auto 30px;
       border: 3px solid rgba(255,255,255,0.1);
       box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      position: relative;
+    }
+
+    .support-avatar::after {
+      content: "";
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      right: -5px;
+      bottom: -5px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+      z-index: -1;
     }
 
     .support-name {
+      font-family: 'Main', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
       font-weight: 700;
-      font-size: 28px;
+      font-size: 32px;
       margin: 0 0 8px;
+      background: linear-gradient(135deg, #fff 0%, #aaa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .support-role {
       color: var(--muted);
       margin: 0 0 40px;
       font-size: 18px;
+      font-weight: 300;
+    }
+
+    /* ====== Кнопка связи ====== */
+    .contact-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 16px 32px;
+      color: var(--fg);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 18px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      position: relative;
+      overflow: hidden;
     }
 
     /* ====== Счетчик ====== */
     .countdown {
-      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
       border: 1px solid var(--card-border);
       border-radius: var(--radius-lg);
       padding: 80px 40px;
       text-align: center;
       position: relative;
       overflow: hidden;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     }
 
     .countdown::before {
@@ -243,11 +402,35 @@
       background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
     }
 
+    .countdown::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    }
+
     .countdown-title {
+      font-family: 'Main', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
       font-weight: 700;
-      font-size: clamp(24px, 3vw, 36px);
-      margin-bottom: 50px;
+      font-size: clamp(26px, 3.5vw, 38px);
+      margin-bottom: 60px;
       letter-spacing: 0.5px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .countdown-title::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 2px;
+      background: var(--accent);
     }
 
     .countdown-grid {
@@ -263,30 +446,34 @@
       flex-direction: column;
       align-items: center;
       position: relative;
+      padding: 20px 0;
     }
 
     .countdown-number {
-      font-weight: 700;
-      font-size: clamp(40px, 6vw, 64px);
+      font-family: 'Main', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-weight: 800;
+      font-size: clamp(44px, 6.5vw, 70px);
       line-height: 1;
       background: linear-gradient(135deg, #fff, #aaa);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       text-shadow: 0 5px 15px rgba(255,255,255,0.1);
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+      position: relative;
     }
 
     .countdown-label {
       font-size: 16px;
       color: var(--muted);
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
+      font-weight: 500;
     }
 
     .countdown-item::after {
       content: "";
       position: absolute;
-      bottom: -15px;
+      bottom: 0;
       width: 30px;
       height: 2px;
       background: rgba(255,255,255,0.3);
@@ -306,20 +493,21 @@
       .section-header {
         margin-bottom: 60px;
       }
-    }
-
-    @media (max-width: 480px) {
-      .homework-grid,
-      .news-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .countdown-grid {
-        grid-template-columns: 1fr;
-      }
       
       .support-section {
         padding: 60px 20px;
+      }
+      
+      .homework-grid,
+      .news-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .countdown-grid {
+        grid-template-columns: 1fr;
       }
       
       .logo {
@@ -329,6 +517,10 @@
       .support-avatar {
         width: 200px;
         height: 200px;
+      }
+      
+      .hero {
+        min-height: 80vh;
       }
     }
 
@@ -351,9 +543,35 @@
       background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
       margin: 0;
     }
+    
+    /* ====== Дополнительные декоративные элементы ====== */
+    .floating-elements {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
+    
+    .floating-element {
+      position: absolute;
+      background: rgba(255,255,255,0.03);
+      border-radius: 50%;
+    }
   </style>
 </head>
 <body>
+  <!-- Декоративные элементы -->
+  <div class="floating-elements">
+    <div class="floating-element" style="width: 80px; height: 80px; top: 10%; left: 10%;"></div>
+    <div class="floating-element" style="width: 40px; height: 40px; top: 60%; left: 80%;"></div>
+    <div class="floating-element" style="width: 60px; height: 60px; top: 30%; left: 70%;"></div>
+    <div class="floating-element" style="width: 50px; height: 50px; top: 80%; left: 20%;"></div>
+  </div>
+
   <!-- Главная секция -->
   <section class="hero">
     <div class="container">
@@ -363,7 +581,7 @@
       </div>
       
       <h1 class="hero-title reveal">7Б КЛАСС</h1>
-      <p class="hero-subtitle reveal">Добро пожаловать!</p>
+      <p class="hero-subtitle reveal">Добро пожаловать на официальный сайт нашего класса</p>
     </div>
   </section>
 
@@ -373,8 +591,8 @@
   <section id="homework">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title reveal">Домашка на завтра</h2>
-        <p class="section-subtitle reveal">На 24 Октября 2025</p>
+        <h2 class="section-title reveal">Домашние задания</h2>
+        <p class="section-subtitle reveal">Актуальные задания на 24 Октября 2025</p>
       </div>
       
       <div class="homework-grid">
@@ -462,7 +680,9 @@
         <h3 class="support-name">Богдан Подвохов</h3>
         <p class="support-role">Сотрудник поддержки</p>
         <p class="section-subtitle">Напишите нам и мы все уладим... как нибудь</p>
-        <p class="section-subtitle">ЕСТЬ КАКОЕ НИБУДЬ ФОТО?? ОТПРАВЬ БОГДАНУ ПОДВОХОВУ В ТЕЛЕГРАММ! - @bogdanpodvohov</p>
+        <a href="https://t.me/bogdanpodvohov" class="contact-button" target="_blank">
+          Связаться
+        </a>
       </div>
     </div>
   </section>
