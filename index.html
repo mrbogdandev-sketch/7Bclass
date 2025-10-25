@@ -5,34 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>7Б класс — официальный сайт</title>
   <meta name="description" content="Сайт 7Б класса: домашние задания, новости, жизнь класса и поддержка."/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     /* ====== Подключение шрифтов ====== */
-    @font-face {
-      font-family: 'Main';
-      src: url('main.otf') format('opentype');
-      font-weight: normal;
-      font-style: normal;
-      font-display: swap;
-    }
-    
-    @font-face {
-      font-family: 'Text';
-      src: url('text.otf') format('opentype');
-      font-weight: normal;
-      font-style: normal;
-      font-display: swap;
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
 
     /* ====== Базовые стили ====== */
     :root{
-      --bg: #000000;
+      --bg: #0a0a0f;
       --fg: #ffffff;
-      --muted: #cfcfcf;
-      --accent: #ffffff;
-      --accent-glow: rgba(255,255,255,0.3);
-      --card-bg: rgba(13, 13, 13, 0.7);
-      --card-border: rgba(255,255,255,0.15);
-      --glow: rgba(255,255,255,0.12);
+      --muted: #b0b0c0;
+      --accent: #6c63ff;
+      --accent-secondary: #ff6584;
+      --accent-glow: rgba(108, 99, 255, 0.3);
+      --card-bg: rgba(20, 20, 30, 0.7);
+      --card-border: rgba(108, 99, 255, 0.2);
+      --glow: rgba(108, 99, 255, 0.12);
       --shadow-strong: 0 20px 40px rgba(0,0,0,0.6);
       --shadow-soft: 0 8px 24px rgba(0,0,0,0.45);
       --radius-xl: 24px;
@@ -55,10 +43,10 @@
       margin: 0;
       color: var(--fg);
       background:
-        radial-gradient(1200px 600px at 50% 35%, rgba(255,255,255,0.12), transparent 60%),
-        radial-gradient(500px 300px at 50% 50%, rgba(255,255,255,0.08), transparent 70%),
+        radial-gradient(1200px 600px at 50% 35%, rgba(108, 99, 255, 0.1), transparent 60%),
+        radial-gradient(500px 300px at 50% 50%, rgba(108, 99, 255, 0.08), transparent 70%),
         var(--bg);
-      font-family: 'Text', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
       line-height: 1.6;
       overflow-x: hidden;
     }
@@ -81,7 +69,7 @@
     .logo {
       height: 140px;
       width: auto;
-      filter: drop-shadow(0 0 20px rgba(255,255,255,0.2));
+      filter: drop-shadow(0 0 20px rgba(108, 99, 255, 0.4));
     }
 
     /* ====== Главная секция ====== */
@@ -103,22 +91,22 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: radial-gradient(ellipse at center, rgba(255,255,255,0.03) 0%, transparent 70%);
+      background: radial-gradient(ellipse at center, rgba(108, 99, 255, 0.05) 0%, transparent 70%);
       pointer-events: none;
     }
 
     .hero-title {
-      font-family: 'Main', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
       font-weight: 800;
       font-size: clamp(42px, 8vw, 90px);
       line-height: 1.05;
       margin: 0 0 28px;
       letter-spacing: -1px;
       max-width: 900px;
-      background: linear-gradient(135deg, #fff 0%, #aaa 100%);
+      background: linear-gradient(135deg, #fff 0%, #b0b0ff 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-shadow: 0 5px 15px rgba(255,255,255,0.1);
+      text-shadow: 0 5px 15px rgba(108, 99, 255, 0.2);
       position: relative;
     }
 
@@ -155,7 +143,7 @@
     }
 
     .section-title {
-      font-family: 'Main', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
       font-weight: 700;
       font-size: clamp(32px, 4.5vw, 48px);
       margin: 0 0 20px;
@@ -191,7 +179,7 @@
     }
 
     .homework-card {
-      background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+      background: linear-gradient(135deg, rgba(108, 99, 255, 0.1), rgba(108, 99, 255, 0.02));
       border: 1px solid var(--card-border);
       border-radius: var(--radius-lg);
       padding: 28px;
@@ -208,11 +196,11 @@
       left: 0;
       right: 0;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      background: linear-gradient(90deg, transparent, rgba(108, 99, 255, 0.5), transparent);
     }
 
     .homework-subject {
-      font-family: 'Main', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
       font-weight: 700;
       font-size: 22px;
       margin: 0 0 12px;
@@ -244,7 +232,7 @@
     }
 
     .news-card {
-      background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+      background: linear-gradient(135deg, rgba(108, 99, 255, 0.1), rgba(108, 99, 255, 0.02));
       border: 1px solid var(--card-border);
       border-radius: var(--radius-lg);
       overflow: hidden;
@@ -271,11 +259,11 @@
       left: 0;
       right: 0;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      background: linear-gradient(90deg, transparent, rgba(108, 99, 255, 0.5), transparent);
     }
 
     .news-title {
-      font-family: 'Main', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
       font-weight: 700;
       font-size: 22px;
       margin: 0 0 16px;
@@ -289,10 +277,10 @@
 
     /* ====== Секция поддержки ====== */
     .support-section {
-      background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+      background: linear-gradient(135deg, rgba(108, 99, 255, 0.1), rgba(108, 99, 255, 0.02));
       border: 1px solid var(--card-border);
       border-radius: var(--radius-lg);
-      padding: 80px 40px;
+      padding: 60px 40px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -307,7 +295,7 @@
       left: 0;
       right: 0;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      background: linear-gradient(90deg, transparent, rgba(108, 99, 255, 0.5), transparent);
     }
 
     .support-section::after {
@@ -317,16 +305,16 @@
       left: 0;
       right: 0;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      background: linear-gradient(90deg, transparent, rgba(108, 99, 255, 0.5), transparent);
     }
 
     .support-avatar {
-      width: 250px;
-      height: 250px;
+      width: 200px;
+      height: 200px;
       border-radius: 50%;
       object-fit: cover;
       margin: 0 auto 30px;
-      border: 3px solid rgba(255,255,255,0.1);
+      border: 3px solid rgba(108, 99, 255, 0.2);
       box-shadow: 0 10px 30px rgba(0,0,0,0.3);
       position: relative;
     }
@@ -339,25 +327,35 @@
       right: -5px;
       bottom: -5px;
       border-radius: 50%;
-      background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+      background: linear-gradient(135deg, rgba(108, 99, 255, 0.3), transparent);
       z-index: -1;
     }
 
     .support-name {
-      font-family: 'Main', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
       font-weight: 700;
       font-size: 32px;
       margin: 0 0 8px;
-      background: linear-gradient(135deg, #fff 0%, #aaa 100%);
+      background: linear-gradient(135deg, #fff 0%, #b0b0ff 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
     .support-role {
       color: var(--muted);
-      margin: 0 0 40px;
+      margin: 0 0 20px;
       font-size: 18px;
       font-weight: 300;
+    }
+
+    .support-description {
+      color: var(--muted);
+      margin: 0 0 30px;
+      font-size: 16px;
+      line-height: 1.6;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     /* ====== Кнопка связи ====== */
@@ -365,23 +363,27 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+      background: linear-gradient(135deg, rgba(108, 99, 255, 0.2), rgba(108, 99, 255, 0.1));
       border: 1px solid var(--card-border);
       border-radius: var(--radius-md);
-      padding: 16px 32px;
+      padding: 14px 28px;
       color: var(--fg);
       text-decoration: none;
       font-weight: 600;
-      font-size: 18px;
+      font-size: 16px;
       backdrop-filter: blur(10px);
       box-shadow: 0 8px 25px rgba(0,0,0,0.2);
       position: relative;
       overflow: hidden;
     }
 
+    .contact-button i {
+      margin-right: 10px;
+    }
+
     /* ====== Счетчик ====== */
     .countdown {
-      background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+      background: linear-gradient(135deg, rgba(108, 99, 255, 0.1), rgba(108, 99, 255, 0.02));
       border: 1px solid var(--card-border);
       border-radius: var(--radius-lg);
       padding: 80px 40px;
@@ -399,7 +401,7 @@
       left: 0;
       right: 0;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      background: linear-gradient(90deg, transparent, rgba(108, 99, 255, 0.5), transparent);
     }
 
     .countdown::after {
@@ -409,11 +411,11 @@
       left: 0;
       right: 0;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      background: linear-gradient(90deg, transparent, rgba(108, 99, 255, 0.5), transparent);
     }
 
     .countdown-title {
-      font-family: 'Main', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
       font-weight: 700;
       font-size: clamp(26px, 3.5vw, 38px);
       margin-bottom: 60px;
@@ -450,14 +452,14 @@
     }
 
     .countdown-number {
-      font-family: 'Main', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
       font-weight: 800;
       font-size: clamp(44px, 6.5vw, 70px);
       line-height: 1;
-      background: linear-gradient(135deg, #fff, #aaa);
+      background: linear-gradient(135deg, #fff, #b0b0ff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-shadow: 0 5px 15px rgba(255,255,255,0.1);
+      text-shadow: 0 5px 15px rgba(108, 99, 255, 0.2);
       margin-bottom: 12px;
       position: relative;
     }
@@ -476,7 +478,116 @@
       bottom: 0;
       width: 30px;
       height: 2px;
-      background: rgba(255,255,255,0.3);
+      background: rgba(108, 99, 255, 0.5);
+    }
+
+    /* ====== Навигация ====== */
+    .nav-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 20px 0;
+      backdrop-filter: blur(10px);
+      background: rgba(10, 10, 15, 0.8);
+      border-bottom: 1px solid rgba(108, 99, 255, 0.1);
+    }
+
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: min(1200px, 94vw);
+      margin: 0 auto;
+    }
+
+    .nav-logo {
+      height: 40px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      color: var(--fg);
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--fg);
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* ====== Футер ====== */
+    footer {
+      background: rgba(10, 10, 15, 0.9);
+      padding: 60px 0 30px;
+      border-top: 1px solid rgba(108, 99, 255, 0.1);
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .footer-logo {
+      height: 60px;
+      width: auto;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-link {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-link:hover {
+      color: var(--accent);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(108, 99, 255, 0.1);
     }
 
     /* ====== Адаптивность ====== */
@@ -495,13 +606,27 @@
       }
       
       .support-section {
-        padding: 60px 20px;
+        padding: 40px 20px;
       }
       
       .homework-grid,
       .news-grid {
         grid-template-columns: 1fr;
         gap: 20px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
       }
     }
 
@@ -515,8 +640,8 @@
       }
       
       .support-avatar {
-        width: 200px;
-        height: 200px;
+        width: 160px;
+        height: 160px;
       }
       
       .hero {
@@ -524,23 +649,73 @@
       }
     }
 
-    /* ====== Анимации появления ====== */
-    .reveal {
+    /* ====== Уникальные анимации для каждого раздела ====== */
+    
+    /* Анимация для главной секции */
+    .hero-reveal {
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+      transform: translateY(40px);
+      transition: opacity 1s ease, transform 1s ease;
     }
-
-    .reveal.active {
+    
+    .hero-reveal.active {
       opacity: 1;
       transform: translateY(0);
+    }
+    
+    /* Анимация для домашних заданий */
+    .homework-reveal {
+      opacity: 0;
+      transform: scale(0.8) rotate(-5deg);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    
+    .homework-reveal.active {
+      opacity: 1;
+      transform: scale(1) rotate(0);
+    }
+    
+    /* Анимация для новостей */
+    .news-reveal {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    
+    .news-reveal.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    /* Анимация для поддержки */
+    .support-reveal {
+      opacity: 0;
+      transform: translateY(30px) scale(0.95);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    
+    .support-reveal.active {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    
+    /* Анимация для счетчика */
+    .countdown-reveal {
+      opacity: 0;
+      transform: scale(1.1);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+    
+    .countdown-reveal.active {
+      opacity: 1;
+      transform: scale(1);
     }
     
     /* ====== Разделители ====== */
     .section-divider {
       width: 100%;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+      background: linear-gradient(90deg, transparent, rgba(108, 99, 255, 0.2), transparent);
       margin: 0;
     }
     
@@ -558,18 +733,39 @@
     
     .floating-element {
       position: absolute;
-      background: rgba(255,255,255,0.03);
+      background: rgba(108, 99, 255, 0.05);
       border-radius: 50%;
+      animation: float 15s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(180deg); }
     }
   </style>
 </head>
 <body>
+  <!-- Навигация -->
+  <nav class="nav-container">
+    <div class="nav-content">
+      <img src="logo.png" alt="Логотип 7Б класса" class="nav-logo">
+      <div class="nav-links">
+        <a href="#homework" class="nav-link">Домашние задания</a>
+        <a href="#news" class="nav-link">Жизнь класса</a>
+        <a href="#support" class="nav-link">Поддержка</a>
+      </div>
+      <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
   <!-- Декоративные элементы -->
   <div class="floating-elements">
-    <div class="floating-element" style="width: 80px; height: 80px; top: 10%; left: 10%;"></div>
-    <div class="floating-element" style="width: 40px; height: 40px; top: 60%; left: 80%;"></div>
-    <div class="floating-element" style="width: 60px; height: 60px; top: 30%; left: 70%;"></div>
-    <div class="floating-element" style="width: 50px; height: 50px; top: 80%; left: 20%;"></div>
+    <div class="floating-element" style="width: 80px; height: 80px; top: 10%; left: 10%; animation-delay: 0s;"></div>
+    <div class="floating-element" style="width: 40px; height: 40px; top: 60%; left: 80%; animation-delay: 2s;"></div>
+    <div class="floating-element" style="width: 60px; height: 60px; top: 30%; left: 70%; animation-delay: 4s;"></div>
+    <div class="floating-element" style="width: 50px; height: 50px; top: 80%; left: 20%; animation-delay: 6s;"></div>
   </div>
 
   <!-- Главная секция -->
@@ -580,8 +776,8 @@
         <img src="logo.png" alt="Логотип 7Б класса" class="logo">
       </div>
       
-      <h1 class="hero-title reveal">7Б КЛАСС</h1>
-      <p class="hero-subtitle reveal">Добро пожаловать на официальный сайт нашего класса</p>
+      <h1 class="hero-title hero-reveal">7Б КЛАСС</h1>
+      <p class="hero-subtitle hero-reveal">Добро пожаловать на официальный сайт нашего класса</p>
     </div>
   </section>
 
@@ -591,32 +787,32 @@
   <section id="homework">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title reveal">Домашние задания</h2>
-        <p class="section-subtitle reveal">Актуальные задания на 24 Октября 2025</p>
+        <h2 class="section-title hero-reveal">Домашние задания</h2>
+        <p class="section-subtitle hero-reveal">Актуальные задания на 24 Октября 2025</p>
       </div>
       
       <div class="homework-grid">
-        <div class="homework-card reveal">
+        <div class="homework-card homework-reveal">
           <h3 class="homework-subject">Математика</h3>
           <p class="homework-task">N 79;80(б)</p>
         </div>
-        <div class="homework-card reveal">
+        <div class="homework-card homework-reveal">
           <h3 class="homework-subject">Русская Литература</h3>
           <p class="homework-task">Наиусть отрывок + таблица</p>
         </div>
-        <div class="homework-card reveal">
+        <div class="homework-card homework-reveal">
           <h3 class="homework-subject">Биология</h3>
           <p class="homework-task">§10 пересказ + сооб "Плесневые грибы"</p>
         </div>
-        <div class="homework-card reveal">
+        <div class="homework-card homework-reveal">
           <h3 class="homework-subject">Беллоруская Литература</h3>
           <p class="homework-task">(вместо исскуства)</p>
         </div>
-        <div class="homework-card reveal">
+        <div class="homework-card homework-reveal">
           <h3 class="homework-subject">-</h3>
           <p class="homework-task">-</p>
         </div>
-        <div class="homework-card reveal">
+        <div class="homework-card homework-reveal">
           <h3 class="homework-subject">-</h3>
           <p class="homework-task">-</p>
         </div>
@@ -630,12 +826,12 @@
   <section id="news">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title reveal">Жизнь класса</h2>
-        <p class="section-subtitle reveal">Самые интересные события и мероприятия</p>
+        <h2 class="section-title hero-reveal">Жизнь класса</h2>
+        <p class="section-subtitle hero-reveal">Самые интересные события и мероприятия</p>
       </div>
 
       <div class="news-grid">
-        <div class="news-card reveal">
+        <div class="news-card news-reveal">
           <img src="live1.png" alt="Осенний проектный день" class="news-image">
           <div class="news-content">
             <h3 class="news-title">Пока ничего нет</h3>
@@ -643,7 +839,7 @@
           </div>
         </div>
 
-        <div class="news-card reveal">
+        <div class="news-card news-reveal">
           <img src="live2.png" alt="Спортивная пятница" class="news-image">
           <div class="news-content">
             <h3 class="news-title">Пока ничего нет</h3>
@@ -651,7 +847,7 @@
           </div>
         </div>
 
-        <div class="news-card reveal">
+        <div class="news-card news-reveal">
           <img src="live3.png" alt="Литературный вечер" class="news-image">
           <div class="news-content">
             <h3 class="news-title">Пока ничего нет</h3>
@@ -659,7 +855,7 @@
           </div>
         </div>
 
-        <div class="news-card reveal">
+        <div class="news-card news-reveal">
           <img src="live4.png" alt="Эко‑субботник" class="news-image">
           <div class="news-content">
             <h3 class="news-title">Пока ничего нет</h3>
@@ -675,13 +871,13 @@
   <!-- Секция поддержки -->
   <section id="support">
     <div class="container">
-      <div class="support-section reveal">
+      <div class="support-section support-reveal">
         <img src="supportphoto.png" alt="Богдан Подвохов" class="support-avatar">
         <h3 class="support-name">Богдан Подвохов</h3>
         <p class="support-role">Сотрудник поддержки</p>
-        <p class="section-subtitle">Напишите нам и мы все уладим... как нибудь</p>
+        <p class="support-description">Напишите нам и мы все уладим... как нибудь</p>
         <a href="https://t.me/bogdanpodvohov" class="contact-button" target="_blank">
-          Связаться
+          <i class="fab fa-telegram"></i> Связаться через Telegram
         </a>
       </div>
     </div>
@@ -692,7 +888,7 @@
   <!-- Счетчик -->
   <section>
     <div class="container">
-      <div class="countdown reveal">
+      <div class="countdown countdown-reveal">
         <h3 class="countdown-title">До окончания учебного года осталось:</h3>
         <div class="countdown-grid">
           <div class="countdown-item">
@@ -716,9 +912,26 @@
     </div>
   </section>
 
+  <!-- Футер -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <img src="logo.png" alt="Логотип 7Б класса" class="footer-logo">
+        <div class="footer-links">
+          <a href="#homework" class="footer-link">Домашние задания</a>
+          <a href="#news" class="footer-link">Жизнь класса</a>
+          <a href="#support" class="footer-link">Поддержка</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 7Б класс. Все права защищены.</p>
+      </div>
+    </div>
+  </footer>
+
   <script>
-    // ====== Анимация появления при скролле ======
-    const observer = new IntersectionObserver((entries) => {
+    // ====== Уникальные анимации для каждого раздела ======
+    const heroObserver = new IntersectionObserver((entries) => {
       for (const entry of entries) {
         if (entry.isIntersecting) {
           entry.target.classList.add('active');
@@ -726,7 +939,44 @@
       }
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    const homeworkObserver = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      }
+    }, { threshold: 0.1 });
+
+    const newsObserver = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      }
+    }, { threshold: 0.1 });
+
+    const supportObserver = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      }
+    }, { threshold: 0.1 });
+
+    const countdownObserver = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      }
+    }, { threshold: 0.1 });
+
+    // Наблюдаем за элементами с разными анимациями
+    document.querySelectorAll('.hero-reveal').forEach(el => heroObserver.observe(el));
+    document.querySelectorAll('.homework-reveal').forEach(el => homeworkObserver.observe(el));
+    document.querySelectorAll('.news-reveal').forEach(el => newsObserver.observe(el));
+    document.querySelectorAll('.support-reveal').forEach(el => supportObserver.observe(el));
+    document.querySelectorAll('.countdown-reveal').forEach(el => countdownObserver.observe(el));
 
     // ====== Счетчик до 31 мая 2026 ======
     function updateCountdown() {
@@ -756,6 +1006,14 @@
     // Обновляем счетчик каждую секунду
     setInterval(updateCountdown, 1000);
     updateCountdown(); // Инициализация при загрузке
+
+    // ====== Мобильное меню ======
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+    });
   </script>
 </body>
 </html>
